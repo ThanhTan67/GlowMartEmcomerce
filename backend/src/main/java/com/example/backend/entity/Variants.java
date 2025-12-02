@@ -1,10 +1,10 @@
 package com.example.backend.entity;
 
+import com.example.backend.enums.ProductStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.backend.enums.ProductStatus;
 
 import java.math.BigDecimal;
 

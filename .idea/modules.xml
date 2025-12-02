@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/GlowMart.iml" filepath="$PROJECT_DIR$/.idea/GlowMart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Backend/backend.iml" filepath="$PROJECT_DIR$/Backend/backend.iml" />
     </modules>
   </component>
 </project>

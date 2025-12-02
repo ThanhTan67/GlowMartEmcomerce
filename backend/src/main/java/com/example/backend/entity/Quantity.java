@@ -1,9 +1,8 @@
 package com.example.backend.entity;
 
-import org.example.backend.enums.UnitOfMeasure;
-
 import java.math.BigDecimal;
 
+import com.example.backend.enums.UnitOfMeasure;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

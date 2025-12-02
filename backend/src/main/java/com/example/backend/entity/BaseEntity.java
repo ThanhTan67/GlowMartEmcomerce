@@ -13,12 +13,37 @@ import java.util.UUID;
 @Getter
 @Setter
 public abstract class BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
-    private Instant createAt;
-    private Instant updateAt;
-    private Instant deletedAt;
-    private boolean isDeleted =  Boolean.FALSE;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "BINARY(16)", nullable = false, updatable = false)
+    private UUID id;
+
+    @Column(name = "created_at", updatable = false)
+    private Instant createdAt;
+
+    @Column(name = "updated_at")
+    private Instant updatedAt;
+
+    @Column(name = "deleted_at")
+    private Instant deletedAt;
+
+    @Column(name = "is_deleted")
+    private boolean isDeleted = false;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = Instant.now();
+        updatedAt = Instant.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = Instant.now();
+    }
+
+    public void softDelete() {
+        this.isDeleted = true;
+        this.deletedAt = Instant.now();
+    }
 }

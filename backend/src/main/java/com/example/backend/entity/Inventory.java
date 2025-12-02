@@ -9,8 +9,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import org.example.backend.enums.ProductStatus;
-
 @Entity
 @Getter
 @Setter

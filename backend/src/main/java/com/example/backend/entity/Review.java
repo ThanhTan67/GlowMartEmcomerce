@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.backend.enums.ProductStatus;
 
 import java.util.Date;
 
@@ -13,10 +12,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @Table(name = "reviews")
-public class Review {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Review extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
