@@ -7,17 +7,24 @@ import lombok.Data;
 
 @Data
 public class SignupRequest {
-    @NotBlank(message = "Username không được để trống")
-    @Size(min = 3, max = 50, message = "Username phải từ 3 đến 50 ký tự")
+    @NotBlank(message = "Full name must not be blank")
+    @Size(min = 3, max = 50, message = "Full name must be between 3 and 50 characters")
     private String fullName;
-    @NotBlank(message = "Email không được để trống")
-    @Email(message = "Email không hợp lệ")
+
+    @NotBlank(message = "Email must not be blank")
+    @Email(message = "Invalid email format")
     private String email;
-    @Size(max = 15, message = "Số điện thoại không được vượt quá 15 ký tự")
+
+    @Size(max = 15, message = "Phone number must not exceed 15 characters")
     private String phoneNumber;
-    @NotBlank(message = "Mật khẩu không được để trống")
-    @Size(min = 8, message = "Mật khẩu phải có ít nhất 8 ký tự")
+
+    @NotBlank(message = "Password must not be blank")
+    @Size(min = 8, message = "Password must be at least 8 characters")
     private String password;
+
+    @NotBlank(message = "Gender must not be blank")
     private String gender;
+
+    @NotBlank(message = "Date of birth must not be blank")
     private String dateOfBirth;
 }

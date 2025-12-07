@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -13,9 +14,9 @@ import java.util.UUID;
 @Getter
 @Setter
 public abstract class BaseEntity {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue
+    @UuidGenerator(style = UuidGenerator.Style.RANDOM)  // Chính là UUID v4
     @Column(columnDefinition = "BINARY(16)", nullable = false, updatable = false)
     private UUID id;
 
@@ -46,4 +47,5 @@ public abstract class BaseEntity {
         this.isDeleted = true;
         this.deletedAt = Instant.now();
     }
+
 }

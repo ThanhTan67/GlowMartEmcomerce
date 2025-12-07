@@ -36,7 +36,10 @@ public class User extends BaseEntity {
     private Boolean locked = false;
     @Column(name = "lock_time")
     private Instant lockTime;
-    @Column(name = "token_version", length = 512)
-    private String tokenVersion;
-
+    @ColumnDefault("0")
+    @Column(name = "token_version", nullable = false)
+    private Integer tokenVersion = 0;
+    @ColumnDefault("true")
+    @Column(name = "enabled", nullable = false)
+    private Boolean enabled = true;
 }
