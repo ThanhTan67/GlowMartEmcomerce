@@ -1,6 +1,6 @@
 package com.example.backend.entity;
 
-import com.example.backend.enums.UserStatus;
+import com.example.backend.enums.GenderOptions;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +22,9 @@ public class User extends BaseEntity {
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
-    private UserStatus gender;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender", nullable = false)
+    private GenderOptions gender;
     @Column(name = "birth_date")
     private LocalDate birthDate;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
